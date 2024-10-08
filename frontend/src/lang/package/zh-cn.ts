@@ -126,6 +126,18 @@ export default {
   log: {
     numLine: "显示行数",
   },
+  telegram: {
+    placeholder: "占位符",
+    enable: "开启",
+    disable: "关闭",
+    telegramEnable: "开启/关闭",
+    telegramToken: "Telegram Token",
+    telegramChatId: "Telegram ChatId",
+    telegramJob: "任务列表",
+    telegramLoginJob: "登录提醒",
+    telegramLoginJobEnable: "开启/关闭",
+    telegramLoginJobText: "内容模板",
+  },
   hysteria: {
     enable: "开启",
     disable: "关闭",

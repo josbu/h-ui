@@ -11,4 +11,10 @@ const (
 	Hysteria2ConfigRemark      = "HYSTERIA2_CONFIG_REMARK"
 	Hysteria2ConfigPortHopping = "HYSTERIA2_CONFIG_PORT_HOPPING"
 	ResetTrafficCron           = "RESET_TRAFFIC_CRON"
+	TelegramEnable             = "TELEGRAM_ENABLE"
+	TelegramToken              = "TELEGRAM_TOKEN"
+	TelegramChatId             = "TELEGRAM_CHAT_ID"
+	TelegramDebug              = "TELEGRAM_DEBUG"
+	TelegramLoginJobEnable     = "TELEGRAM_LOGIN_JOB_ENABLE"
+	TelegramLoginJobText       = "TELEGRAM_LOGIN_JOB_TEXT"
 )

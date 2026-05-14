@@ -287,7 +287,7 @@ install_h_ui_docker() {
     jonssonyan/h-ui"${hui_docker_version}" \
     ./h-ui -p ${h_ui_port}
   sleep 3
-  echo_content yellow "h-ui Panel Port: ${h_ui_port}"
+  echo_content yellow "h-ui Access URL: http://:<your-server-ip>:${h_ui_port}"
   if version_ge "$(docker exec h-ui ./h-ui -v | sed -n 's/.*version \([^\ ]*\).*/\1/p')" "v0.0.12"; then
     echo_content yellow "$(docker exec h-ui ./h-ui reset)"
   else
@@ -395,7 +395,7 @@ install_h_ui_systemd() {
     systemctl enable h-ui &&
     systemctl restart h-ui
   sleep 3
-  echo_content yellow "h-ui Panel Port: ${h_ui_port}"
+  echo_content yellow "h-ui Access URL: http://:<your-server-ip>:${h_ui_port}"
   if version_ge "$(/usr/local/h-ui/h-ui -v | sed -n 's/.*version \([^\ ]*\).*/\1/p')" "v0.0.12"; then
     echo_content yellow "$(${HUI_DATA_SYSTEMD}h-ui reset)"
   else

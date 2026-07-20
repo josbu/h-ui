@@ -239,6 +239,8 @@ export default {
       bandwidth: {
         up: "上传",
         down: "下载",
+        disableLossCompensation:
+          "Brutal 拥塞控制有一个「丢包补偿」机制：当出现丢包时，它会根据丢包率以略高于设定带宽的速度发送，以尝试继续达到设定的目标速度。取决于网络环境，这可能有用也可能适得其反。将此项设为 true 即可关闭补偿机制，永远不以高于设定带宽的速度发送。注意此选项是本地的，只影响本机的上传方向。",
       },
       ignoreClientBandwidth: "忽略客户端带宽设置",
       congestion: {

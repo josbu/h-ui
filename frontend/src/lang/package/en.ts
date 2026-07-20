@@ -243,6 +243,7 @@ export default {
       bandwidth: {
         up: "Up",
         down: "Down",
+		  disableLossCompensation:"Brutal congestion control has a \"loss compensation\" mechanism: when there is packet loss, it attempts to send slightly faster than the set bandwidth to compensate and still reach the target speed. This may or may not help depending on the network conditions, and can sometimes make things worse. Set this to true to disable the compensation and always send at exactly the set speed. Note that this option is local to the endpoint (it only affects the upload direction of this machine)."
       },
       ignoreClientBandwidth:
         "When enabled, makes the server to disregard any bandwidth hints set by clients",

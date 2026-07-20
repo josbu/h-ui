@@ -75,6 +75,7 @@ export interface Hysteria2ServerConfig {
   bandwidth?: {
     up: string;
     down: string;
+    disableLossCompensation: boolean;
   };
   ignoreClientBandwidth?: boolean;
   congestion?: {
@@ -202,6 +203,7 @@ export const defaultHysteria2ServerConfig: Hysteria2ServerConfig = {
   bandwidth: {
     up: "1 gbps",
     down: "1 gbps",
+    disableLossCompensation: false,
   },
   ignoreClientBandwidth: false,
   congestion: {

@@ -94,8 +94,9 @@ type serverConfigQUIC struct {
 }
 
 type serverConfigBandwidth struct {
-	Up   *string `yaml:"up,omitempty" json:"up" validate:"required"`
-	Down *string `yaml:"down,omitempty" json:"down" validate:"required"`
+	Up                      *string `yaml:"up,omitempty" json:"up" validate:"required"`
+	Down                    *string `yaml:"down,omitempty" json:"down" validate:"required"`
+	DisableLossCompensation *bool   `yaml:"disableLossCompensation,omitempty" json:"disableLossCompensation" validate:"required"`
 }
 
 type serverConfigCongestion struct {

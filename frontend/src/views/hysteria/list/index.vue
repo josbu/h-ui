@@ -651,6 +651,19 @@
               </el-form-item>
             </el-tooltip>
             <el-tooltip
+              :content="$t('hysteria.config.bandwidth.disableLossCompensation')"
+              placement="bottom"
+            >
+              <el-form-item
+                label="bandwidth.disableLossCompensation"
+                prop="bandwidth.disableLossCompensation"
+              >
+                <el-switch
+                  v-model="dataForm.bandwidth.disableLossCompensation"
+                />
+              </el-form-item>
+            </el-tooltip>
+            <el-tooltip
               :content="$t('hysteria.config.ignoreClientBandwidth')"
               placement="bottom"
             >

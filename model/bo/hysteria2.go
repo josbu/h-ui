@@ -25,9 +25,16 @@ type serverConfigObfsSalamander struct {
 	Password *string `yaml:"password,omitempty" json:"password" validate:"required"`
 }
 
+type serverConfigObfsGecko struct {
+	Password      *string `yaml:"password,omitempty" json:"password" validate:"required"`
+	MinPacketSize *uint64 `yaml:"minPacketSize,omitempty" json:"minPacketSize" validate:"required"`
+	MaxPacketSize *uint64 `yaml:"maxPacketSize,omitempty" json:"maxPacketSize" validate:"required"`
+}
+
 type serverConfigObfs struct {
 	Type       *string                     `yaml:"type,omitempty" json:"type" validate:"required"`
-	Salamander *serverConfigObfsSalamander `yaml:"salamander,omitempty" json:"salamander" validate:"required"`
+	Salamander *serverConfigObfsSalamander `yaml:"salamander,omitempty" json:"salamander" validate:"omitempty"`
+	Gecko      *serverConfigObfsGecko      `yaml:"gecko,omitempty" json:"gecko" validate:"omitempty"`
 }
 
 type serverConfigTLS struct {

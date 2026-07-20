@@ -480,6 +480,48 @@
                 />
               </el-form-item>
             </el-tooltip>
+            <el-tooltip
+              v-if="dataForm.obfs.type === 'gecko'"
+              :content="$t('hysteria.config.obfs.gecko.password')"
+              placement="bottom"
+            >
+              <el-form-item
+                label="obfs.gecko.password"
+                prop="obfs.gecko.password"
+              >
+                <el-input v-model="dataForm.obfs.gecko.password" clearable />
+              </el-form-item>
+            </el-tooltip>
+            <el-tooltip
+              v-if="dataForm.obfs.type === 'gecko'"
+              :content="$t('hysteria.config.obfs.gecko.minPacketSize')"
+              placement="bottom"
+            >
+              <el-form-item
+                label="obfs.gecko.minPacketSize"
+                prop="obfs.gecko.minPacketSize"
+              >
+                <el-input
+                  v-model.number="dataForm.obfs.gecko.minPacketSize"
+                  clearable
+                />
+              </el-form-item>
+            </el-tooltip>
+            <el-tooltip
+              v-if="dataForm.obfs.type === 'gecko'"
+              :content="$t('hysteria.config.obfs.gecko.maxPacketSize')"
+              placement="bottom"
+            >
+              <el-form-item
+                label="obfs.gecko.maxPacketSize"
+                prop="obfs.gecko.maxPacketSize"
+              >
+                <el-input
+                  v-model.number="dataForm.obfs.gecko.maxPacketSize"
+                  clearable
+                />
+              </el-form-item>
+            </el-tooltip>
           </el-tab-pane>
           <el-tab-pane :label="$t('hysteria.quic')" name="quic" v-if="quic">
             <el-tooltip
@@ -1200,7 +1242,7 @@ const dnsNames = ref<string[]>([
   "namedotcom",
   "vultr",
 ]);
-const obfsTypes = ref<string[]>(["salamander"]);
+const obfsTypes = ref<string[]>(["salamander", "gecko"]);
 const resolverTypes = ref<string[]>(["tcp", "udp", "tls", "https"]);
 const masqueradeTypes = ref<string[]>(["file", "proxy", "string"]);
 
@@ -1430,6 +1472,12 @@ const submitForm = () => {
         },
       ];
       updateConfigsApi({ configUpdateDtos: configs });
+
+      if (state.dataForm?.obfs?.type == "salamander") {
+        state.dataForm.obfs.gecko = undefined;
+      } else if (state.dataForm?.obfs?.type == "gecko") {
+        state.dataForm.obfs.salamander = undefined;
+      }
 
       if (state.tlsType == "tls") {
         state.dataForm.acme = undefined;

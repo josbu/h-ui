@@ -215,6 +215,13 @@ export default {
         salamander: {
           password: "Replace with a strong password of your choice.",
         },
+        gecko: {
+          password: "Replace with a strong password of your choice.",
+          minPacketSize:
+            "Minimum size of each fragmented handshake datagram, in bytes. Default 512.",
+          maxPacketSize:
+            "Maximum size of each fragmented handshake datagram, in bytes. Default 1200. Must be >= minPacketSize and <= 2048.",
+        },
       },
       quic: {
         initStreamReceiveWindow: "The initial QUIC stream receive window size.",
@@ -237,7 +244,8 @@ export default {
         "When enabled, makes the server to disregard any bandwidth hints set by clients",
       congestion: {
         type: "Type",
-        bbrProfile: "This field only applies when type is bbr. The default is standard.",
+        bbrProfile:
+          "This field only applies when type is bbr. The default is standard.",
       },
       speedTest:
         "speedTest enables the built-in speed test server. When enabled, clients can test their download and upload speeds with the server. For more information, see the Speed Test documentation.",

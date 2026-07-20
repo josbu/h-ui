@@ -217,12 +217,18 @@ export default {
         salamander: {
           password: "Замените на надежный пароль по вашему выбору.",
         },
+        gecko: {
+          password: "Замените на надежный пароль по вашему выбору.",
+          minPacketSize:
+            "Минимальный размер каждого фрагментированного пакета рукопожатия в байтах. По умолчанию 512.",
+          maxPacketSize:
+            "Максимальный размер каждого фрагментированного пакета рукопожатия в байтах. По умолчанию 1200. Должен быть >= minPacketSize и <= 2048.",
+        },
       },
       quic: {
         initStreamReceiveWindow: "Начальный размер окна приема потока QUIC.",
         maxStreamReceiveWindow: "Максимальный размер окна приема потока QUIC.",
-        initConnReceiveWindow:
-          "Начальный размер окна приема соединения QUIC.",
+        initConnReceiveWindow: "Начальный размер окна приема соединения QUIC.",
         maxConnReceiveWindow:
           "Максимальный размер окна приема соединения QUIC.",
         maxIdleTimeout:

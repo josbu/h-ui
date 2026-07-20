@@ -214,6 +214,12 @@ export default {
         salamander: {
           password: "替换为你的混淆密码。",
         },
+        gecko: {
+          password: "替换为你的混淆密码。",
+          minPacketSize: "握手分片包的最小字节数。默认 512。",
+          maxPacketSize:
+            "握手分片包的最大字节数。默认 1200。必须 >= minPacketSize 且 <= 2048。",
+        },
       },
       quic: {
         initStreamReceiveWindow: "初始的 QUIC 流接收窗口大小。",

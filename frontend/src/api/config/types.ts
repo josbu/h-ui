@@ -51,8 +51,13 @@ export interface Hysteria2ServerConfig {
   };
   obfs?: {
     type: string;
-    salamander: {
+    salamander?: {
       password: string;
+    };
+    gecko?: {
+      password: string;
+      minPacketSize: number;
+      maxPacketSize: number;
     };
   };
   quic?: {
@@ -172,6 +177,11 @@ export const defaultHysteria2ServerConfig: Hysteria2ServerConfig = {
     type: "salamander",
     salamander: {
       password: "cry_me_a_r1ver",
+    },
+    gecko: {
+      password: "cry_me_a_r1ver",
+      minPacketSize: 512,
+      maxPacketSize: 1200,
     },
   },
   quic: {

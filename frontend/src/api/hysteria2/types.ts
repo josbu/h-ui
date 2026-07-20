@@ -19,10 +19,9 @@ export interface Hysteria2UrlDto {
 }
 
 export interface Hysteria2SubscribeVo {
-	url: string;
-	qrCode: string;
+  url: string;
+  qrCode: string;
 }
-
 
 export interface Hysteria2UrlVo {
   url: string;

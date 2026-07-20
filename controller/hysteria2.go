@@ -94,7 +94,7 @@ func ListRelease(c *gin.Context) {
 			// >= v2.4.4
 			result := util.CompareVersion(versionSplit[1], "2.4.4")
 			if result < 0 {
-				break
+				continue
 			}
 			for _, asset := range item.Assets {
 				if asset.GetName() == util.GetHysteria2BinName() {

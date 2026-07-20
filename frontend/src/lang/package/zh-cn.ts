@@ -156,6 +156,7 @@ export default {
     extension: "扩展",
     listen: "监听地址",
     tls: "TLS",
+    ech: "ECH",
     obfs: "混淆",
     quic: "QUIC 参数",
     bandwidth: "带宽",
@@ -208,6 +209,10 @@ export default {
           "用于 HTTP 挑战的监听端口。 （注意： 改为非 80 需要另行配置端口转发或者 HTTP 反向代理，否则证书会签署失败！）",
         altTLSALPNPort:
           "用于 TLS-ALPN 挑战的监听端口。 （注意： 改为非 443 需要另行配置端口转发或者 SNI Proxy，否则证书会签署失败！）",
+      },
+      ech: {
+        keyPath:
+          "使用 `sing-box generate ech-keypair <public_name>` 生成的 ECH 密钥文件的路径。服务端在启动时会在日志中输出客户端需要设置到其 tls.ech 中的配置列表。详细信息请参考 ECH。",
       },
       obfs: {
         type: "类型",

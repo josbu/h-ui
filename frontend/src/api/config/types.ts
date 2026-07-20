@@ -49,6 +49,9 @@ export interface Hysteria2ServerConfig {
     altHTTPPort: number;
     altTLSALPNPort: number;
   };
+  ech?: {
+    keyPath: string;
+  };
   obfs?: {
     type: string;
     salamander?: {
@@ -172,6 +175,9 @@ export const defaultHysteria2ServerConfig: Hysteria2ServerConfig = {
     disableTLSALPN: false,
     altHTTPPort: 80,
     altTLSALPNPort: 443,
+  },
+  ech: {
+    keyPath: "ech.pem",
   },
   obfs: {
     type: "salamander",

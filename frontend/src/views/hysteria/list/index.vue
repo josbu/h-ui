@@ -445,6 +445,16 @@
               </el-form-item>
             </el-tooltip>
           </el-tab-pane>
+          <el-tab-pane :label="$t('hysteria.ech')" name="ech" v-if="ech">
+            <el-tooltip
+              :content="$t('hysteria.config.ech.keyPath')"
+              placement="bottom"
+            >
+              <el-form-item label="ech.keyPath" prop="ech.keyPath">
+                <el-input v-model="dataForm.ech.keyPath" clearable />
+              </el-form-item>
+            </el-tooltip>
+          </el-tab-pane>
           <el-tab-pane :label="$t('hysteria.obfs')" name="obfs" v-if="obfs">
             <el-tooltip
               :content="$t('hysteria.config.obfs.type')"
@@ -1259,6 +1269,7 @@ const state = reactive({
   activeName: "extension",
   tlsType: "acme",
   aclType: "inline",
+  ech: false,
   obfs: false,
   quic: false,
   bandwidth: false,
@@ -1287,6 +1298,7 @@ const {
   dataForm,
   tlsType,
   aclType,
+  ech,
   obfs,
   quic,
   bandwidth,
@@ -1307,6 +1319,12 @@ const {
 
 const tabs = computed(() => {
   let tabs: Tab[] = [];
+  if (!state.ech) {
+    tabs.push({
+      name: "ech",
+      desc: t("hysteria.ech"),
+    });
+  }
   if (!state.obfs) {
     tabs.push({
       name: "obfs",
@@ -1422,6 +1440,7 @@ const handleReset = () => {
   state.activeName = "extension";
   state.tlsType = "acme";
   state.aclType = "inline";
+  state.ech = false;
   state.obfs = false;
   state.quic = false;
   state.bandwidth = false;
@@ -1536,6 +1555,9 @@ const submitForm = () => {
         state.dataForm.masquerade.proxy = undefined;
       }
 
+      if (!state.ech) {
+        state.dataForm.ech = undefined;
+      }
       if (!state.obfs) {
         state.dataForm.obfs = undefined;
       }
@@ -1633,6 +1655,7 @@ const setConfig = () => {
       state.tlsType = data?.tls?.cert && data?.tls?.key ? "tls" : "acme";
       state.aclType = data?.acl?.inline ? "inline" : "file";
 
+      state.ech = !!data?.ech;
       state.obfs = !!data?.obfs;
       state.quic = !!data?.quic;
       state.bandwidth = !!data?.bandwidth;
@@ -1660,8 +1683,9 @@ const closeTabPane = (tabPaneName: string) => {
     ElMessage.error("This tab is required");
     return;
   }
-
-  if (tabPaneName === "obfs") {
+  if (tabPaneName === "ech") {
+    state.ech = false;
+  } else if (tabPaneName === "obfs") {
     state.obfs = false;
   } else if (tabPaneName === "quic") {
     state.quic = false;
@@ -1686,7 +1710,9 @@ const closeTabPane = (tabPaneName: string) => {
 };
 
 const handleDropdownClick = (command: string) => {
-  if (command === "obfs") {
+  if (command === "ech") {
+    state.ech = true;
+  } else if (command === "obfs") {
     state.obfs = true;
   } else if (command === "quic") {
     state.quic = true;

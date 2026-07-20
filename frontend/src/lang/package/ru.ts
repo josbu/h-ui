@@ -159,6 +159,7 @@ export default {
     extension: "Расширение",
     listen: "Прослушивание",
     tls: "TLS",
+    ech: "ECH",
     obfs: "Обфускация",
     quic: "Параметры QUIC",
     bandwidth: "Пропускная способность",
@@ -212,6 +213,9 @@ export default {
         altTLSALPNPort:
           "Альтернативный порт TLS-ALPN challenge. Примечание: если используется не 443, нужно настроить проброс порта или SNI proxy с 443 на этот порт, иначе ACME не сможет выпустить сертификат.",
       },
+		ech:{
+			keyPath:"Путь к файлу ключа ECH, созданному с помощью команды `sing-box generate ech-keypair <public_name>`. При запуске сервер выводит в журнал список конфигурации, который необходимо указать клиентам в `tls.ech`. Подробнее см. раздел ECH."
+		},
       obfs: {
         type: "Тип",
         salamander: {

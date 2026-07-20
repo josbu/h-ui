@@ -157,6 +157,7 @@ export default {
     extension: "Extension",
     listen: "Listen",
     tls: "TLS",
+    ech: "ECH",
     obfs: "Obfuscation",
     quic: "QUIC parameters",
     bandwidth: "Bandwidth",
@@ -210,6 +211,9 @@ export default {
         altTLSALPNPort:
           "Alternate TLS-ALPN challenge port. (Note: If you want to use anything other than 443, you must set up port forward/SNI proxy from 443 to that port, otherwise ACME will not be able to issue the certificate.)",
       },
+		ech:{
+			keyPath:"Path to an ECH key file generated with `sing-box generate ech-keypair <public_name>`. On startup, the server logs the config list that clients need to set in their tls.ech. See ECH for details."
+		},
       obfs: {
         type: "Type",
         salamander: {

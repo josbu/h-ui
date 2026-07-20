@@ -5,6 +5,7 @@ type Hysteria2ServerConfig struct {
 	Obfs                  *serverConfigObfs           `yaml:"obfs,omitempty" json:"obfs" validate:"omitempty"`
 	TLS                   *serverConfigTLS            `yaml:"tls,omitempty" json:"tls" validate:"omitempty"`
 	ACME                  *serverConfigACME           `yaml:"acme,omitempty" json:"acme" validate:"omitempty"`
+	Ech                   *serverConfigEch            `yaml:"ech,omitempty" json:"ech" validate:"omitempty"`
 	QUIC                  *serverConfigQUIC           `yaml:"quic,omitempty" json:"quic" validate:"omitempty"`
 	Bandwidth             *serverConfigBandwidth      `yaml:"bandwidth,omitempty" json:"bandwidth" validate:"omitempty"`
 	IgnoreClientBandwidth *bool                       `yaml:"ignoreClientBandwidth,omitempty" json:"ignoreClientBandwidth" validate:"omitempty"`
@@ -76,6 +77,10 @@ type serverConfigACMETLS struct {
 type serverConfigACMEDNS struct {
 	Name   *string           `yaml:"name,omitempty" json:"name" validate:"required"`
 	Config map[string]string `yaml:"config,omitempty" json:"config" validate:"required"`
+}
+
+type serverConfigEch struct {
+	KeyPath string `yaml:"keyPath,omitempty" json:"keyPath" validate:"required"`
 }
 
 type serverConfigQUIC struct {
